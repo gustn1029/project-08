@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+/* 3단계 */
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+ul, ol, li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	outline: 0;
+	color: inherit;
+}
+
+.upper{text-transform: uppercase;}
+.hidden{font-size: 0; line-height: 0;
+	width: 0; height:0; 
+	position:absolute; left: -9999px; top: -9999px;
+	opacity: 0; text-indent: -9999px;
+}
+button{all:unset;
+	cursor: pointer;
+}
+
+body{background: linear-gradient(to right, violet, lightpink);
+}
+.wrap{width: 100%; height: 100vh; overflow: hidden;
+	position: relative;
+}
+#header{ display: flex; padding: 50px;
+	justify-content: space-between; align-items: center;
+	color: #fff;
+}
+#header h2{font-size: 2rem;}
+#header span{font-size: 0.7rem;}
+#header a{font-size: 1.5rem;}
+
+.content-wrap{width: 17rem; height: 33rem;
+	position: absolute; left: 50%; top: 200%;
+	transform: translate(-50%, -130%);
+	transition: all 1s;
+}
+
+.content-wrap article{
+	width: 100%; height: 100%;
+	position: absolute; left: 0; top: 0;
+	opacity: 0.5;
+	transition: all 0.5s;
+}
+
+article.on{opacity: 1;}
+
+article > div{height: 100%; width: 100%;
+	padding: 3rem 2rem;
+	display: flex; flex-direction: column;
+	justify-content: space-between; align-items: center;
+	align-self: stretch;
+	background-color: #fff;
+	transform: scale(1);
+	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+	transition: all 0.3s;
+}
+article.on > div{transform: scale(1.2);}
+article figure{width:13rem; height: 13rem;
+	border-radius: 100%; overflow: hidden;
+	position: relative;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+article figure::before,
+article figure::after{content: ""; position: absolute;}
+article figure::before{
+	left: 50%; top: 50%; z-index: 2;
+	width: 3rem; height: 3rem;
+	border-radius: 100%;
+	background-color: #fff;
+	transform: translate(-50%, -50%);
+}
+article figure::after{width: 100%; height: 100%;
+	background: inherit;
+	z-index: 1;
+}
+article figure.on::after{animation: rotate 3s infinite linear;}
+
+.txt-wrap{text-align: center;}
+
+.btn-wrap{width: 80%;
+	display: flex;
+	justify-content: space-between;
+}
+.btn-wrap .play{font-size: 1.5rem;}
+
+.prev,.next{position: absolute; top: 50%;
+	color: #fff;
+}
+.prev{left: 35%; transform: translate(-50%, -50%);}
+.next{right: 30%; transform: translate(-50%, -50%);}
+
+@keyframes rotate{
+	from{transform: rotate(0);}
+	to{transform: rotate(360deg);}
+}
