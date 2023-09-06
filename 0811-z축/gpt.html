@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .section {
+    flex: 0 0 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    scroll-snap-align: start;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="section" style="background-color: #ffcccc;">Section 1</div>
+  <div class="section" style="background-color: #ccffcc;">Section 2</div>
+  <div class="section" style="background-color: #ccccff;">Section 3</div>
+</div>
+
+</body>
+</html>
